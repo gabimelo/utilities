@@ -1,3 +1,8 @@
+import os
+
+if not os.path.exists('books'):
+    os.makedirs('books')
+
 with open('My Clippings.txt', 'r', encoding='utf-8-sig') as f:
     content = f.read().splitlines() 
 
@@ -20,5 +25,5 @@ for line in content:
 
 for key, value in book_clippings.items():
     if key != 'my_book':
-        with open('{}.txt'.format(key), 'w') as f:
+        with open('books/{}.txt'.format(key), 'w') as f:
             f.write(value)
