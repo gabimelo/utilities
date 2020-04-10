@@ -16,9 +16,8 @@ def handle_extra_params(logger_func):
 
 class Logger(object):
     def __init__(self):
-        # change to value of CUSTOM_FIELD in line below
-        format = '%(levelname)s %(asctime)-15s: %(custom_field)s%(message)s'
-        logging.basicConfig(format=format)
+        custom_format = f'%(levelname)s %(asctime)-15s: %({CUSTOM_FIELD})s%(message)s'
+        logging.basicConfig(format=custom_format)
         self.logger = logging.getLogger(__name__)
         self.logger.setLevel(logging.INFO)
 
